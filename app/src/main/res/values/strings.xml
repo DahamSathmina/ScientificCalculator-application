@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ProCalc</string>
+    
+    <!-- Button Labels -->
+    <string name="clear">AC</string>
+    <string name="plus_minus">±</string>
+    <string name="percent">%</string>
+    <string name="divide">÷</string>
+    <string name="multiply">×</string>
+    <string name="subtract">−</string>
+    <string name="add">+</string>
+    <string name="equals">=</string>
+    <string name="decimal">.</string>
+    <string name="zero">0</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
+    
+    <!-- Memory Functions -->
+    <string name="memory_clear">MC</string>
+    <string name="memory_recall">MR</string>
+    <string name="memory_plus">M+</string>
+    <string name="memory_minus">M−</string>
+    
+    <!-- Advanced Functions -->
+    <string name="square_root">√</string>
+    <string name="reciprocal">1/x</string>
+    
+    <!-- Display Messages -->
+    <string name="error">Error</string>
+    <string name="infinity">∞</string>
+    
+    <!-- Content Descriptions for Accessibility -->
+    <string name="cd_number_button">Number %1$s</string>
+    <string name="cd_operator_button">%1$s operation</string>
+    <string name="cd_function_button">%1$s function</string>
+    <string name="cd_memory_button">Memory %1$s</string>
+    <string name="cd_display">Calculator display</string>
+    <string name="cd_operation_display">Current operation display</string>
+    
+</resources>
