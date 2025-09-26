@@ -1,0 +1,26 @@
+# Build results
+bin/
+obj/
+
+# VS Code settings
+.vscode/
+
+# Logs
+*.log
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# NuGet
+*.nupkg
+packages/
+
+# Publish outputs
+publish/
+out/
+
+# Temporary files
+*.tmp
+*.swp
+
