@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <ApplicationIcon>Assets/web/icon-512.ico</ApplicationIcon>
+    <ApplicationIcon>Assets\icon-512.png</ApplicationIcon>
     <OutputType>Exe</OutputType>
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
