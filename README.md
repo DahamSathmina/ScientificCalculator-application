@@ -1,9 +1,7 @@
 # Scientific Console Calculator
 
 [![.NET](https://img.shields.io/badge/.NET-10.0-blue?logo=dotnet)](https://dotnet.microsoft.com/)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/yourusername/ScientificCalculator/dotnet.yml?branch=main)](https://github.com/yourusername/ScientificCalculator/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/yourusername/ScientificCalculator)](https://github.com/yourusername/ScientificCalculator/issues)
 
 A **feature-rich, console-based scientific calculator** built in **C#**, with color-coded output, history management, and support for advanced mathematical operations. Perfect for developers, students, and math enthusiasts.
 
