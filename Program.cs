@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 class ScientificCalculator
 {
@@ -44,141 +46,169 @@ class ScientificCalculator
                 continue;
             }
 
-            double num1 = 0, num2 = 0;
-
-            // Operations that require only one number
-            if (choice >= 7 && choice <= 15)
+            // Multi-number operations (1-6, 8-15)
+            if ((choice >= 1 && choice <= 6) || (choice >= 8 && choice <= 15))
             {
-                Console.Write("Enter a number: ");
-                if (!double.TryParse(Console.ReadLine(), out num1))
+                Console.WriteLine("Enter numbers separated by spaces:");
+                string? numbersInput = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(numbersInput))
                 {
-                    Console.WriteLine("Invalid number. Try again.");
-                    continue;
-                }
-            }
-            else // Two-number operations
-            {
-                Console.Write("Enter the first number: ");
-                if (!double.TryParse(Console.ReadLine(), out num1))
-                {
-                    Console.WriteLine("Invalid number. Try again.");
+                    Console.WriteLine("No numbers entered. Try again.");
                     continue;
                 }
 
-                Console.Write("Enter the second number: ");
-                if (!double.TryParse(Console.ReadLine(), out num2))
+                string[] parts = numbersInput.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                List<double> numbers = new List<double>();
+
+                foreach (var part in parts)
                 {
-                    Console.WriteLine("Invalid number. Try again.");
-                    continue;
-                }
-            }
-
-            double result = 0;
-
-            switch (choice)
-            {
-                case 1:
-                    result = num1 + num2;
-                    Console.WriteLine($"Result: {num1} + {num2} = {result}");
-                    break;
-
-                case 2:
-                    result = num1 - num2;
-                    Console.WriteLine($"Result: {num1} - {num2} = {result}");
-                    break;
-
-                case 3:
-                    result = num1 * num2;
-                    Console.WriteLine($"Result: {num1} * {num2} = {result}");
-                    break;
-
-                case 4:
-                    if (num2 == 0)
-                        Console.WriteLine("Error: Division by zero!");
+                    if (double.TryParse(part, out double n))
+                        numbers.Add(n);
                     else
                     {
-                        result = num1 / num2;
-                        Console.WriteLine($"Result: {num1} / {num2} = {result}");
+                        Console.WriteLine($"Invalid number: {part}");
+                        numbers.Clear();
+                        break;
                     }
-                    break;
+                }
 
-                case 5:
-                    result = num1 % num2;
-                    Console.WriteLine($"Result: {num1} % {num2} = {result}");
-                    break;
+                if (numbers.Count == 0) continue;
 
-                case 6:
-                    result = Math.Pow(num1, num2);
-                    Console.WriteLine($"Result: {num1}^{num2} = {result}");
-                    break;
+                double result = 0;
 
-                case 7:
+                switch (choice)
+                {
+                    case 1: // Add
+                        result = numbers.Sum();
+                        Console.WriteLine($"Result: {string.Join(" + ", numbers)} = {result}");
+                        break;
+
+                    case 2: // Subtract
+                        result = numbers[0];
+                        for (int i = 1; i < numbers.Count; i++)
+                            result -= numbers[i];
+                        Console.WriteLine($"Result: {string.Join(" - ", numbers)} = {result}");
+                        break;
+
+                    case 3: // Multiply
+                        result = 1;
+                        foreach (var n in numbers) result *= n;
+                        Console.WriteLine($"Result: {string.Join(" * ", numbers)} = {result}");
+                        break;
+
+                    case 4: // Divide
+                        result = numbers[0];
+                        for (int i = 1; i < numbers.Count; i++)
+                        {
+                            if (numbers[i] == 0)
+                            {
+                                Console.WriteLine("Error: Division by zero!");
+                                result = double.NaN;
+                                break;
+                            }
+                            result /= numbers[i];
+                        }
+                        Console.WriteLine($"Result: {string.Join(" / ", numbers)} = {result}");
+                        break;
+
+                    case 5: // Modulus
+                        result = numbers[0];
+                        for (int i = 1; i < numbers.Count; i++)
+                            result %= numbers[i];
+                        Console.WriteLine($"Result: {string.Join(" % ", numbers)} = {result}");
+                        break;
+
+                    case 6: // Power
+                        result = numbers[0];
+                        for (int i = 1; i < numbers.Count; i++)
+                            result = Math.Pow(result, numbers[i]);
+                        Console.WriteLine($"Result: {string.Join(" ^ ", numbers)} = {result}");
+                        break;
+
+                    case 8: // Factorial
+                        Console.WriteLine("Results:");
+                        foreach (var n in numbers)
+                        {
+                            if (n < 0 || n != Math.Floor(n))
+                                Console.WriteLine($"Factorial of {n} undefined (must be non-negative integer)!");
+                            else
+                            {
+                                long factorial = 1;
+                                for (int i = 1; i <= (int)n; i++)
+                                    factorial *= i;
+                                Console.WriteLine($"{n}! = {factorial}");
+                            }
+                        }
+                        break;
+
+                    case 9: // Sin
+                        Console.WriteLine("Results:");
+                        foreach (var n in numbers)
+                            Console.WriteLine($"sin({n}°) = {Math.Sin(n * Math.PI / 180)}");
+                        break;
+
+                    case 10: // Cos
+                        Console.WriteLine("Results:");
+                        foreach (var n in numbers)
+                            Console.WriteLine($"cos({n}°) = {Math.Cos(n * Math.PI / 180)}");
+                        break;
+
+                    case 11: // Tan
+                        Console.WriteLine("Results:");
+                        foreach (var n in numbers)
+                            Console.WriteLine($"tan({n}°) = {Math.Tan(n * Math.PI / 180)}");
+                        break;
+
+                    case 12: // Log
+                        Console.WriteLine("Results:");
+                        foreach (var n in numbers)
+                        {
+                            if (n <= 0) Console.WriteLine($"log({n}) undefined!");
+                            else Console.WriteLine($"log({n}) = {Math.Log10(n)}");
+                        }
+                        break;
+
+                    case 13: // Ln
+                        Console.WriteLine("Results:");
+                        foreach (var n in numbers)
+                        {
+                            if (n <= 0) Console.WriteLine($"ln({n}) undefined!");
+                            else Console.WriteLine($"ln({n}) = {Math.Log(n)}");
+                        }
+                        break;
+
+                    case 14: // e^x
+                        Console.WriteLine("Results:");
+                        foreach (var n in numbers)
+                            Console.WriteLine($"e^{n} = {Math.Exp(n)}");
+                        break;
+
+                    case 15: // Abs
+                        Console.WriteLine("Results:");
+                        foreach (var n in numbers)
+                            Console.WriteLine($"abs({n}) = {Math.Abs(n)}");
+                        break;
+                }
+            }
+            else // Single-number operations (still only sqrt)
+            {
+                Console.Write("Enter a number: ");
+                if (!double.TryParse(Console.ReadLine(), out double num1))
+                {
+                    Console.WriteLine("Invalid number. Try again.");
+                    continue;
+                }
+
+                if (choice == 7) // Square Root
+                {
                     if (num1 < 0)
                         Console.WriteLine("Error: Cannot calculate square root of a negative number!");
                     else
-                    {
-                        result = Math.Sqrt(num1);
-                        Console.WriteLine($"Result: √{num1} = {result}");
-                    }
-                    break;
-
-                case 8:
-                    if (num1 < 0 || num1 != Math.Floor(num1))
-                        Console.WriteLine("Error: Factorial only works for non-negative integers.");
-                    else
-                    {
-                        long factorial = 1;
-                        for (int i = 1; i <= (int)num1; i++)
-                            factorial *= i;
-                        Console.WriteLine($"Result: {num1}! = {factorial}");
-                    }
-                    break;
-
-                case 9:
-                    result = Math.Sin(num1 * Math.PI / 180);
-                    Console.WriteLine($"sin({num1}°) = {result}");
-                    break;
-
-                case 10:
-                    result = Math.Cos(num1 * Math.PI / 180);
-                    Console.WriteLine($"cos({num1}°) = {result}");
-                    break;
-
-                case 11:
-                    result = Math.Tan(num1 * Math.PI / 180);
-                    Console.WriteLine($"tan({num1}°) = {result}");
-                    break;
-
-                case 12:
-                    if (num1 <= 0)
-                        Console.WriteLine("Error: Log undefined for numbers ≤ 0!");
-                    else
-                    {
-                        result = Math.Log10(num1);
-                        Console.WriteLine($"log({num1}) = {result}");
-                    }
-                    break;
-
-                case 13:
-                    if (num1 <= 0)
-                        Console.WriteLine("Error: Ln undefined for numbers ≤ 0!");
-                    else
-                    {
-                        result = Math.Log(num1);
-                        Console.WriteLine($"ln({num1}) = {result}");
-                    }
-                    break;
-
-                case 14:
-                    result = Math.Exp(num1);
-                    Console.WriteLine($"e^{num1} = {result}");
-                    break;
-
-                case 15:
-                    result = Math.Abs(num1);
-                    Console.WriteLine($"abs({num1}) = {result}");
-                    break;
+                        Console.WriteLine($"√{num1} = {Math.Sqrt(num1)}");
+                }
             }
         }
     }
 }
+
+
