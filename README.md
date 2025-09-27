@@ -129,4 +129,4 @@ Angle: 30 → Result: sin(30°) = 0.5
 
 ## License
 
-This project is licensed under the **MIT License**. See [LICENSE](https://github.com/DahamSathmina/ScientificCalculator-application/blob/7ca0723059f0709c20c76673eda56e4dd0a97108/README.md) for details.
+This project is licensed under the **MIT License**. See [LICENSE](https://github.com/DahamSathmina/ScientificCalculator-application/blob/061e345850f53a4ecc0e70c742bd442655ed134c/LICENSE) for details.
