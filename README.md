@@ -41,8 +41,8 @@ A **feature-rich, console-based scientific calculator** built in **C#**, with co
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/ScientificCalculator.git
-cd ScientificCalculator
+git clone https://github.com/DahamSathmina/ScientificCalculator-application.git
+cd ScientificCalculator-application
 ```
 
 2. Install [.NET SDK 10.0+](https://dotnet.microsoft.com/download)  
