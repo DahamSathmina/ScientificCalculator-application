@@ -45,7 +45,6 @@ class ScientificCalculator
                 Console.ResetColor();
                 continue;
             }
-
             if (choice == 18)
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
