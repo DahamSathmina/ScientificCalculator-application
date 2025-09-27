@@ -1,6 +1,6 @@
 # Scientific Console Calculator
 
-[![.NET](https://img.shields.io/badge/.NET-10.0-blue?logo=dotnet)](https://dotnet.microsoft.com/)
+[![.NET](https://img.shields.io/badge/.NET-9.0-blue?logo=dotnet)](https://dotnet.microsoft.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green)](https://opensource.org/license/mit)
 
 A **feature-rich, console-based scientific calculator** built in **C#**, with color-coded output, history management, and support for advanced mathematical operations. Perfect for developers, students, and math enthusiasts.
@@ -45,7 +45,7 @@ git clone https://github.com/DahamSathmina/ScientificCalculator-application.git
 cd ScientificCalculator-application
 ```
 
-2. Install [.NET SDK 10.0+](https://dotnet.microsoft.com/download)  
+2. Install [.NET SDK 9.0+](https://dotnet.microsoft.com/download)  
 3. Build the project:
 
 ```bash
