@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
 class ScientificCalculator
 {
     static void Main()
@@ -272,6 +271,8 @@ class ScientificCalculator
         }
     }
 }
+
+
 
 
 
