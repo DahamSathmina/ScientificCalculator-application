@@ -6,8 +6,8 @@ class ScientificCalculator
 {
     static void Main()
     {
-        Console.WriteLine("=== Scientific Console Calculator ===");
-
+        Console.WriteLine("==== Scientific Console XCalculator ====");
+        
         bool running = true;
         List<string> history = new List<string>();
         double lastResult = 0; // store last result
@@ -114,38 +114,129 @@ class ScientificCalculator
 
                 switch (choice)
                 {
-                    case 1: result = numbers.Sum(); calculationText = $"{string.Join(" + ", numbers.Select(Simplify))} = {Simplify(result)}"; break;
-                    case 2: result = numbers[0]; for (int i = 1; i < numbers.Count; i++) result -= numbers[i]; calculationText = $"{string.Join(" - ", numbers.Select(Simplify))} = {Simplify(result)}"; break;
-                    case 3: result = 1; foreach (var n in numbers) result *= n; calculationText = $"{string.Join(" * ", numbers.Select(Simplify))} = {Simplify(result)}"; break;
+                    case 1: result = numbers.Sum(); 
+                        calculationText = $"{string.Join(" + ", numbers.Select(Simplify))} = {Simplify(result)}"; 
+                        break;
+                    
+                    case 2: result = numbers[0]; 
+                        for (int i = 1; i < numbers.Count; i++) result -= numbers[i]; 
+                        calculationText = $"{string.Join(" - ", numbers.Select(Simplify))} = {Simplify(result)}"; 
+                        break;
+                    
+                    case 3: result = 1; 
+                        foreach (var n in numbers) result *= n; calculationText = $"{string.Join(" * ", numbers.Select(Simplify))} = {Simplify(result)}"; 
+                        break;
+                    
                     case 4:
                         result = numbers[0];
                         bool divideByZero = false;
                         for (int i = 1; i < numbers.Count; i++)
                         {
-                            if (numbers[i] == 0) { Console.ForegroundColor = ConsoleColor.Red; Console.WriteLine("Error: Division by zero!"); Console.ResetColor(); divideByZero = true; break; }
+                            if (numbers[i] == 0) { Console.ForegroundColor = ConsoleColor.Red; 
+                                Console.WriteLine("Error: Division by zero!"); 
+                                Console.ResetColor(); 
+                                divideByZero = true; 
+                                break; 
+                            }
                             result /= numbers[i];
                         }
                         calculationText = divideByZero ? "Division by zero error" : $"{string.Join(" / ", numbers.Select(Simplify))} = {Simplify(result)}";
                         break;
-                    case 5: result = numbers[0]; for (int i = 1; i < numbers.Count; i++) result %= numbers[i]; calculationText = $"{string.Join(" % ", numbers.Select(Simplify))} = {Simplify(result)}"; break;
-                    case 6: result = numbers[0]; for (int i = 1; i < numbers.Count; i++) result = Math.Pow(result, numbers[i]); calculationText = $"{string.Join(" ^ ", numbers.Select(Simplify))} = {Simplify(result)}"; break;
+
+                    case 5: result = numbers[0]; for (int i = 1; i < numbers.Count; i++) 
+                            result %= numbers[i]; 
+                        calculationText = $"{string.Join(" % ", numbers.Select(Simplify))} = {Simplify(result)}"; 
+                        break;
+                    
+                    case 6: result = numbers[0]; for (int i = 1; i < numbers.Count; i++) 
+                            result = Math.Pow(result, numbers[i]); 
+                        calculationText = $"{string.Join(" ^ ", numbers.Select(Simplify))} = {Simplify(result)}"; 
+                        break;
 
                     case 8: // Factorial
                         Console.WriteLine("Results:");
                         foreach (var n in numbers)
                         {
-                            if (n < 0 || n != Math.Floor(n)) { Console.ForegroundColor = ConsoleColor.Red; Console.WriteLine($"Factorial of {n} undefined!"); Console.ResetColor(); history.Add($"Factorial of {n} undefined"); }
-                            else { long factorial = 1; for (int i = 1; i <= (int)n; i++) factorial *= i; Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine($"{n}! = {factorial}"); Console.ResetColor(); history.Add($"{n}! = {factorial}"); lastResult = factorial; }
+                            if (n < 0 || n != Math.Floor(n)) { 
+                                Console.ForegroundColor = ConsoleColor.Red; 
+                                Console.WriteLine($"Factorial of {n} undefined!"); 
+                                Console.ResetColor(); 
+                                history.Add($"Factorial of {n} undefined"); }
+                            else { long factorial = 1; 
+                                for (int i = 1; i <= (int)n; i++) factorial *= i; 
+                                Console.ForegroundColor = ConsoleColor.Green; 
+                                Console.WriteLine($"{n}! = {factorial}"); 
+                                Console.ResetColor(); 
+                                history.Add($"{n}! = {factorial}"); 
+                                lastResult = factorial; 
+                            }
                         }
                         continue;
 
-                    case 9: foreach (var n in numbers) { result = Math.Sin(n * Math.PI / 180); Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine($"sin({Simplify(n)}°) = {Simplify(result)}"); Console.ResetColor(); history.Add($"sin({Simplify(n)}°) = {Simplify(result)}"); lastResult = result; } continue;
-                    case 10: foreach (var n in numbers) { result = Math.Cos(n * Math.PI / 180); Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine($"cos({Simplify(n)}°) = {Simplify(result)}"); Console.ResetColor(); history.Add($"cos({Simplify(n)}°) = {Simplify(result)}"); lastResult = result; } continue;
-                    case 11: foreach (var n in numbers) { result = Math.Tan(n * Math.PI / 180); Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine($"tan({Simplify(n)}°) = {Simplify(result)}"); Console.ResetColor(); history.Add($"tan({Simplify(n)}°) = {Simplify(result)}"); lastResult = result; } continue;
-                    case 12: foreach (var n in numbers) { if (n <= 0) { Console.ForegroundColor = ConsoleColor.Red; Console.WriteLine($"log({n}) undefined!"); Console.ResetColor(); history.Add($"log({n}) undefined"); } else { result = Math.Log10(n); Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine($"log({Simplify(n)}) = {Simplify(result)}"); Console.ResetColor(); history.Add($"log({Simplify(n)}) = {Simplify(result)}"); lastResult = result; } } continue;
-                    case 13: foreach (var n in numbers) { if (n <= 0) { Console.ForegroundColor = ConsoleColor.Red; Console.WriteLine($"ln({n}) undefined!"); Console.ResetColor(); history.Add($"ln({n}) undefined"); } else { result = Math.Log(n); Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine($"ln({Simplify(n)}) = {Simplify(result)}"); Console.ResetColor(); history.Add($"ln({Simplify(n)}) = {Simplify(result)}"); lastResult = result; } } continue;
-                    case 14: foreach (var n in numbers) { result = Math.Exp(n); Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine($"e^{Simplify(n)} = {Simplify(result)}"); Console.ResetColor(); history.Add($"e^{Simplify(n)} = {Simplify(result)}"); lastResult = result; } continue;
-                    case 15: foreach (var n in numbers) { result = Math.Abs(n); Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine($"abs({Simplify(n)}) = {Simplify(result)}"); Console.ResetColor(); history.Add($"abs({Simplify(n)}) = {Simplify(result)}"); lastResult = result; } continue;
+                    case 9: foreach (var n in numbers) { result = Math.Sin(n * Math.PI / 180); 
+                            Console.ForegroundColor = ConsoleColor.Green; 
+                            Console.WriteLine($"sin({Simplify(n)}°) = {Simplify(result)}"); 
+                            Console.ResetColor(); 
+                            history.Add($"sin({Simplify(n)}°) = {Simplify(result)}"); 
+                            lastResult = result; 
+                        } continue;
+                   
+                    case 10: foreach (var n in numbers) { result = Math.Cos(n * Math.PI / 180); 
+                            Console.ForegroundColor = ConsoleColor.Green; 
+                            Console.WriteLine($"cos({Simplify(n)}°) = {Simplify(result)}"); 
+                            Console.ResetColor(); 
+                            history.Add($"cos({Simplify(n)}°) = {Simplify(result)}"); 
+                            lastResult = result; 
+                        } continue;
+                   
+                    case 11: foreach (var n in numbers) { result = Math.Tan(n * Math.PI / 180); 
+                            Console.ForegroundColor = ConsoleColor.Green; 
+                            Console.WriteLine($"tan({Simplify(n)}°) = {Simplify(result)}"); 
+                            Console.ResetColor(); 
+                            history.Add($"tan({Simplify(n)}°) = {Simplify(result)}"); 
+                            lastResult = result; 
+                        } continue;
+                   
+                    case 12: foreach (var n in numbers) { if (n <= 0) { 
+                                Console.ForegroundColor = ConsoleColor.Red; 
+                                Console.WriteLine($"log({n}) undefined!"); 
+                                Console.ResetColor(); 
+                                history.Add($"log({n}) undefined"); 
+                            } else { result = Math.Log10(n); 
+                                Console.ForegroundColor = ConsoleColor.Green; 
+                                Console.WriteLine($"log({Simplify(n)}) = {Simplify(result)}"); 
+                                Console.ResetColor(); 
+                                history.Add($"log({Simplify(n)}) = {Simplify(result)}"); 
+                                lastResult = result; 
+                            } } continue;
+                    
+                    case 13: foreach (var n in numbers) { if (n <= 0) { 
+                                Console.ForegroundColor = ConsoleColor.Red; 
+                                Console.WriteLine($"ln({n}) undefined!"); 
+                                Console.ResetColor(); history.Add($"ln({n}) undefined"); 
+                            } else { result = Math.Log(n); 
+                                Console.ForegroundColor = ConsoleColor.Green; 
+                                Console.WriteLine($"ln({Simplify(n)}) = {Simplify(result)}"); 
+                                Console.ResetColor(); 
+                                history.Add($"ln({Simplify(n)}) = {Simplify(result)}"); 
+                                lastResult = result; 
+                            } } continue;
+                   
+                    case 14: foreach (var n in numbers) { result = Math.Exp(n); 
+                            Console.ForegroundColor = ConsoleColor.Green; 
+                            Console.WriteLine($"e^{Simplify(n)} = {Simplify(result)}"); 
+                            Console.ResetColor(); 
+                            history.Add($"e^{Simplify(n)} = {Simplify(result)}"); 
+                            lastResult = result; 
+                        } continue;
+
+                    case 15: foreach (var n in numbers) { result = Math.Abs(n); 
+                            Console.ForegroundColor = ConsoleColor.Green; 
+                            Console.WriteLine($"abs({Simplify(n)}) = {Simplify(result)}"); 
+                            Console.ResetColor(); 
+                            history.Add($"abs({Simplify(n)}) = {Simplify(result)}"); 
+                            lastResult = result; 
+                        } continue;
                 }
 
                 if (!string.IsNullOrEmpty(calculationText))
@@ -165,8 +256,18 @@ class ScientificCalculator
 
                 if (choice == 7)
                 {
-                    if (num1 < 0) { Console.ForegroundColor = ConsoleColor.Red; Console.WriteLine("Error: Cannot calculate square root of a negative number!"); Console.ResetColor(); }
-                    else { double sqrtResult = Math.Sqrt(num1); Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine($"√{Simplify(num1)} = {Simplify(sqrtResult)}"); Console.ResetColor(); history.Add($"√{Simplify(num1)} = {Simplify(sqrtResult)}"); lastResult = sqrtResult; }
+                    if (num1 < 0) { 
+                        Console.ForegroundColor = ConsoleColor.Red; 
+                        Console.WriteLine("Error: Cannot calculate square root of a negative number!"); 
+                        Console.ResetColor(); 
+                    }
+                    else { double sqrtResult = Math.Sqrt(num1); 
+                        Console.ForegroundColor = ConsoleColor.Green; 
+                        Console.WriteLine($"√{Simplify(num1)} = {Simplify(sqrtResult)}"); 
+                        Console.ResetColor(); 
+                        history.Add($"√{Simplify(num1)} = {Simplify(sqrtResult)}"); 
+                        lastResult = sqrtResult; 
+                    }
                 }
             }
         }
