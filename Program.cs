@@ -7,7 +7,6 @@ class ScientificCalculator
     static void Main()
     {
         Console.WriteLine("==== Scientific Console XCalculator ====");
-        
         bool running = true;
         List<string> history = new List<string>();
         double lastResult = 0; // store last result
