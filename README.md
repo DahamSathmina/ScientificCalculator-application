@@ -9,13 +9,13 @@ A **feature-rich, console-based scientific calculator** built in **C#**, with co
 
 ## Table of Contents
 
-- [Features](#-features)  
-- [Installation](#-installation)  
-- [Usage](#-usage)  
-- [Supported Operations](#-supported-operations)  
-- [Examples](#-examples)  
-- [Contribution](#-contribution)  
-- [License](#-license)  
+- [Features](#-Features)  
+- [Installation](#-Installation)  
+- [Usage](#-Usage-Tips)  
+- [Supported Operations](#-Supported-Operations)  
+- [Examples](#-Examples)  
+- [Contribution](#-Contribution)  
+- [License](#-License)  
 
 ---
 
