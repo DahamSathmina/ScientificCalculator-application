@@ -80,12 +80,11 @@ dotnet run
 
 ---
 
-## 💡 Usage Tips
-
-- Press **Enter** to reuse the last calculation result.  
-- Use **`done`** to finish multi-number input.  
-- View calculation history with **option 16**, clear with **option 17**.  
-- Input angles in **degrees** for trigonometric functions.  
+> [!IMPORTANT]
+>- Press **Enter** to reuse the last calculation result.  
+>- Use **`done`** to finish multi-number input.  
+>- View calculation history with **option 16**, clear with **option 17**.  
+>- Input angles in **degrees** for trigonometric functions.  
 
 ---
 
@@ -120,10 +119,10 @@ Angle: 30 → Result: sin(30°) = 0.5
 - Push: `git push origin feature-name`  
 - Open a Pull Request  
 
-**Suggested improvements:**  
-- Add new mathematical functions  
-- Improve error handling and UX  
-- Add cross-platform or GUI support  
+> [!TIP] 
+>- Add new mathematical functions  
+>- Improve error handling and UX  
+>- Add cross-platform or GUI support  
 
 ---
 
