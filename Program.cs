@@ -251,6 +251,7 @@ class ScientificCalculator
             {
                 Console.Write($"Enter a number (Press Enter to use last result {Simplify(lastResult)}): ");
                 string? input = Console.ReadLine();
+
                 double num1 = string.IsNullOrWhiteSpace(input) ? lastResult : double.Parse(input);
 
                 if (choice == 7)
