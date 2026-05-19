@@ -45,7 +45,7 @@ git clone https://github.com/DahamSathmina/ScientificCalculator-application.git
 cd ScientificCalculator-application
 ```
 
-2. Install [.NET SDK 9.0+](https://dotnet.microsoft.com/download)  
+2. Install [.NET SDK 8.0+](https://dotnet.microsoft.com/download)  
 3. Build the project:
 
 ```bash
