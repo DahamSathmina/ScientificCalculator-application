@@ -19,7 +19,7 @@ A **feature-rich, console-based scientific calculator** built in **C#**, with co
 
 ---
 
-## ⚡ Features
+## ⚡Features
 
 - **Basic Arithmetic:** `+`, `-`, `*`, `/`, `%`  
 - **Advanced Operations:** Power `^`, Square Root `√`, Factorial `!`, Absolute Value  
@@ -36,12 +36,12 @@ A **feature-rich, console-based scientific calculator** built in **C#**, with co
 
 ---
 
-## 🛠️ Installation
+## Installation
 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/DahamSathmina/ScientificCalculator-application.git
+git clone https://github.com/dahamsathmina/ScientificCalculator-application.git
 cd ScientificCalculator-application
 ```
 
@@ -60,7 +60,7 @@ dotnet run
 
 ---
 
-## 📐 Supported Operations
+## Supported Operations
 
 | Operation | Input | Description |
 |-----------|-------|-------------|
