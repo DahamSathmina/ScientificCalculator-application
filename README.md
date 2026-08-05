@@ -1,13 +1,16 @@
-# Scientific Console Calculator
+<div align="center">
+  <h2>Scientific Console Calculator</h2>
 
 [![.NET](https://img.shields.io/badge/.NET-9.0-blue?logo=dotnet)](https://dotnet.microsoft.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green)](https://opensource.org/license/mit)
+
+</div>
 
 A **feature-rich, console-based scientific calculator** built in **C#**, with color-coded output, history management, and support for advanced mathematical operations. Perfect for developers, students, and math enthusiasts.
 
 ---
 
-## Table of Contents
+### Table of Contents
 
 - [Features](#-Features)  
 - [Installation](#-Installation)  
@@ -17,9 +20,7 @@ A **feature-rich, console-based scientific calculator** built in **C#**, with co
 - [Contribution](#-Contribution)  
 - [License](#-License)  
 
----
-
-## ⚡Features
+### ⚡Features
 
 - **Basic Arithmetic:** `+`, `-`, `*`, `/`, `%`  
 - **Advanced Operations:** Power `^`, Square Root `√`, Factorial `!`, Absolute Value  
@@ -34,9 +35,8 @@ A **feature-rich, console-based scientific calculator** built in **C#**, with co
   - Red: Errors  
   - Yellow: Notifications  
 
----
 
-## Installation
+### Installation
 
 1. Clone the repository:
 
@@ -58,9 +58,8 @@ dotnet build
 dotnet run
 ```
 
----
 
-## Supported Operations
+### Supported Operations
 
 | Operation | Input | Description |
 |-----------|-------|-------------|
@@ -78,7 +77,6 @@ dotnet run
 | e^x | Single number | Exponential function |
 | Abs | Single number | Absolute value |
 
----
 
 > [!IMPORTANT]
 >- Press **Enter** to reuse the last calculation result.  
@@ -86,9 +84,8 @@ dotnet run
 >- View calculation history with **option 16**, clear with **option 17**.  
 >- Input angles in **degrees** for trigonometric functions.  
 
----
 
-## Examples
+### Examples
 
 ```text
 Addition:
