@@ -12,10 +12,10 @@ A **feature-rich, console-based scientific calculator** built in **C#**, with co
 
 ### Table of Contents
 
-[Features](###-Features)  
-[Installation](###-Installation)  
-[Supported Operations](###-Supported-Operations)  
-[Examples](###-Examples)
+[Features](##-Features)  
+[Installation](##-Installation)  
+[Supported Operations](##-Supported-Operations)  
+[Examples](##-Examples)
 
 ### ⚡Features
 
